@@ -1,0 +1,570 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout | Reals Gadgets</title>
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+        body {
+            background: #f4f7fc;
+            color: #102448;
+        }
+
+        .checkout-page {
+            max-width: 750px;
+            margin: 35px auto;
+            padding: 20px;
+        }
+
+        .checkout-panel {
+            background: white;
+            padding: 25px;
+            border-radius: 15px;
+            box-shadow: 0 8px 25px rgba(0,0,0,.06);
+            margin-bottom: 20px;
+        }
+
+        .checkout-panel h2 {
+            margin-top: 0;
+        }
+
+        .field {
+            margin-bottom: 18px;
+        }
+
+        .field label {
+            display: block;
+            margin-bottom: 7px;
+            font-weight: bold;
+        }
+
+        .field input,
+        .field textarea,
+        .field select {
+            width: 100%;
+            padding: 13px;
+            border: 1px solid #d5deeb;
+            border-radius: 8px;
+            box-sizing: border-box;
+            font: inherit;
+            background: white;
+            color: #102448;
+        }
+
+        .field input:focus,
+        .field textarea:focus,
+        .field select:focus {
+            outline: none;
+            border-color: #1769d2;
+            box-shadow: 0 0 0 3px rgba(23,105,210,.10);
+        }
+
+        .section-note {
+            color: #68778d;
+            font-size: 13px;
+            margin-top: -8px;
+            margin-bottom: 20px;
+        }
+
+        .payment-option {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 15px;
+            border: 1px solid #d5deeb;
+            border-radius: 9px;
+            margin: 12px 0;
+            cursor: pointer;
+        }
+
+        .payment-option input {
+            width: 18px;
+            height: 18px;
+        }
+
+        .place-order {
+            width: 100%;
+            border: 0;
+            padding: 16px;
+            background: #102448;
+            color: white;
+            border-radius: 9px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .place-order:disabled {
+            opacity: .5;
+            cursor: not-allowed;
+        }
+
+        .notice {
+            background: #fff6df;
+            color: #78520a;
+            padding: 13px;
+            border-radius: 8px;
+            line-height: 1.6;
+            font-size: 14px;
+        }
+
+        .back-link {
+            display: inline-block;
+            margin: 15px 0;
+            color: #1769d2;
+        }
+
+        @media(max-width: 600px) {
+            .checkout-page {
+                margin: 15px auto;
+                padding: 12px;
+            }
+
+            .checkout-panel {
+                padding: 18px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<header class="navbar">
+    <a href="index.html" class="logo">
+        REALS<span>GADGETS.</span>
+    </a>
+
+    <nav class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="cart.html">My Cart</a>
+    </nav>
+</header>
+
+<main class="checkout-page">
+
+    <h1>Checkout</h1>
+
+    <!-- ORDER SUMMARY -->
+
+    <section class="checkout-panel">
+        <h2>Your Order</h2>
+
+        <div id="order-items"></div>
+
+        <hr>
+
+        <h2 id="order-total">Total: ₦0</h2>
+    </section>
+
+    <form id="checkout-form">
+
+        <!-- CUSTOMER INFORMATION -->
+
+        <section class="checkout-panel">
+
+            <h2>Customer Information</h2>
+
+            <div class="field">
+                <label for="customer-name">Full Name</label>
+                <input
+                    id="customer-name"
+                    type="text"
+                    placeholder="Enter your full name"
+                    required
+                >
+            </div>
+
+            <div class="field">
+                <label for="customer-email">Email Address</label>
+                <input
+                    id="customer-email"
+                    type="email"
+                    placeholder="example@email.com"
+                    required
+                >
+            </div>
+
+            <div class="field">
+                <label for="customer-phone">Phone Number</label>
+                <input
+                    id="customer-phone"
+                    type="tel"
+                    placeholder="e.g. 09123053184"
+                    required
+                >
+            </div>
+
+        </section>
+
+        <!-- DELIVERY INFORMATION -->
+
+        <section class="checkout-panel">
+
+            <h2>Delivery Information</h2>
+
+            <p class="section-note">
+                Please provide your correct delivery location
+                so we can arrange your order.
+            </p>
+
+            <div class="field">
+
+                <label for="customer-state">
+                    Select State
+                </label>
+
+                <select id="customer-state" required>
+
+                    <option value="">Choose your state</option>
+
+                    <option value="Abia">Abia</option>
+                    <option value="Adamawa">Adamawa</option>
+                    <option value="Akwa Ibom">Akwa Ibom</option>
+                    <option value="Anambra">Anambra</option>
+                    <option value="Bauchi">Bauchi</option>
+                    <option value="Bayelsa">Bayelsa</option>
+                    <option value="Benue">Benue</option>
+                    <option value="Borno">Borno</option>
+                    <option value="Cross River">Cross River</option>
+                    <option value="Delta">Delta</option>
+                    <option value="Ebonyi">Ebonyi</option>
+                    <option value="Edo">Edo</option>
+                    <option value="Ekiti">Ekiti</option>
+                    <option value="Enugu">Enugu</option>
+                    <option value="FCT">FCT (Abuja)</option>
+                    <option value="Gombe">Gombe</option>
+                    <option value="Imo">Imo</option>
+                    <option value="Jigawa">Jigawa</option>
+                    <option value="Kaduna">Kaduna</option>
+                    <option value="Kano">Kano</option>
+                    <option value="Katsina">Katsina</option>
+                    <option value="Kebbi">Kebbi</option>
+                    <option value="Kogi">Kogi</option>
+                    <option value="Kwara">Kwara</option>
+                    <option value="Lagos">Lagos</option>
+                    <option value="Nasarawa">Nasarawa</option>
+                    <option value="Niger">Niger</option>
+                    <option value="Ogun">Ogun</option>
+                    <option value="Ondo">Ondo</option>
+                    <option value="Osun">Osun</option>
+                    <option value="Oyo">Oyo</option>
+                    <option value="Plateau">Plateau</option>
+                    <option value="Rivers">Rivers</option>
+                    <option value="Sokoto">Sokoto</option>
+                    <option value="Taraba">Taraba</option>
+                    <option value="Yobe">Yobe</option>
+                    <option value="Zamfara">Zamfara</option>
+
+                </select>
+
+            </div>
+
+            <div class="field">
+
+                <label for="customer-lga" id="lga-label">
+                    Local Government Area (LGA)
+                </label>
+
+                <input
+                    id="customer-lga"
+                    type="text"
+                    placeholder="Enter your LGA"
+                    required
+                >
+
+            </div>
+
+            <div class="field">
+
+                <label for="customer-city">
+                    City / Town
+                </label>
+
+                <input
+                    id="customer-city"
+                    type="text"
+                    placeholder="Enter your city or town"
+                    required
+                >
+
+            </div>
+
+            <div class="field">
+
+                <label for="customer-address">
+                    Full Delivery Address
+                </label>
+
+                <textarea
+                    id="customer-address"
+                    rows="4"
+                    placeholder="House number, street name, area and nearby landmark"
+                    required
+                ></textarea>
+
+            </div>
+
+        </section>
+
+        <!-- PAYMENT METHOD -->
+
+        <section class="checkout-panel">
+
+            <h2>Choose Payment Method</h2>
+
+            <label class="payment-option">
+
+                <input
+                    type="radio"
+                    name="payment"
+                    value="card"
+                    required
+                >
+
+                <span>
+                    <strong>Debit / Credit Card</strong><br>
+                    <small>Pay securely with your bank card.</small>
+                </span>
+
+            </label>
+
+            <label class="payment-option">
+
+                <input
+                    type="radio"
+                    name="payment"
+                    value="transfer"
+                >
+
+                <span>
+                    <strong>Bank Transfer</strong><br>
+                    <small>Bank transfer payment option.</small>
+                </span>
+
+            </label>
+
+            <label class="payment-option">
+
+                <input
+                    type="radio"
+                    name="payment"
+                    value="paystack"
+                >
+
+                <span>
+                    <strong>Paystack</strong><br>
+                    <small>Continue to secure Paystack payment.</small>
+                </span>
+
+            </label>
+
+            <div class="notice">
+                Payment processing is not connected yet.
+                Your order details can be prepared, but do not
+                send money until the payment gateway and verified
+                bank transfer instructions are configured.
+            </div>
+
+        </section>
+
+        <button class="place-order" type="submit">
+            Continue with Order
+        </button>
+
+    </form>
+
+    <a class="back-link" href="cart.html">
+        ← Return to Cart
+    </a>
+
+</main>
+
+<script>
+
+document.addEventListener("DOMContentLoaded", function () {
+
+    const cart = JSON.parse(
+        localStorage.getItem("realsGadgetsCart") || "[]"
+    );
+
+    function money(amount) {
+        return "₦" + Number(amount).toLocaleString("en-NG");
+    }
+
+    function getTotal() {
+        return cart.reduce(function (sum, item) {
+            return sum +
+                Number(item.price) * Number(item.quantity);
+        }, 0);
+    }
+
+    // DISPLAY ORDER ITEMS
+
+    const orderItems = document.getElementById("order-items");
+
+    const submitButton =
+        document.querySelector(".place-order");
+
+    if (cart.length === 0) {
+
+        orderItems.textContent = "Your cart is empty.";
+
+        submitButton.disabled = true;
+
+    } else {
+
+        cart.forEach(function (item) {
+
+            const line = document.createElement("p");
+
+            line.textContent =
+                item.name + " × " + item.quantity +
+                " — " +
+                money(item.price * item.quantity);
+
+            orderItems.appendChild(line);
+
+        });
+
+    }
+
+    document.getElementById("order-total").textContent =
+        "Total: " + money(getTotal());
+
+
+    // UPDATE LGA LABEL WHEN STATE CHANGES
+
+    const stateSelect =
+        document.getElementById("customer-state");
+
+    const lgaLabel =
+        document.getElementById("lga-label");
+
+    const lgaInput =
+        document.getElementById("customer-lga");
+
+    stateSelect.addEventListener("change", function () {
+
+        const selectedState = stateSelect.value;
+
+        if (selectedState) {
+
+            const displayState =
+                selectedState === "FCT"
+                ? "FCT (Abuja)"
+                : selectedState;
+
+            lgaLabel.textContent =
+                "Local Government Area in " + displayState;
+
+            lgaInput.placeholder =
+                "Enter your LGA in " + displayState;
+
+            lgaInput.value = "";
+
+        } else {
+
+            lgaLabel.textContent =
+                "Local Government Area (LGA)";
+
+            lgaInput.placeholder = "Enter your LGA";
+
+        }
+
+    });
+
+
+    // HANDLE CHECKOUT FORM
+
+    document.getElementById("checkout-form")
+        .addEventListener("submit", function (event) {
+
+            event.preventDefault();
+
+            if (cart.length === 0) {
+
+                alert("Your cart is empty.");
+
+                return;
+
+            }
+
+            const payment = document.querySelector(
+                'input[name="payment"]:checked'
+            );
+
+            if (!payment) {
+
+                alert("Please select a payment method.");
+
+                return;
+
+            }
+
+            const order = {
+
+                orderNumber: "RG-" + Date.now(),
+
+                customer: {
+
+                    name: document.getElementById(
+                        "customer-name"
+                    ).value.trim(),
+
+                    email: document.getElementById(
+                        "customer-email"
+                    ).value.trim(),
+
+                    phone: document.getElementById(
+                        "customer-phone"
+                    ).value.trim(),
+
+                    state: stateSelect.value,
+
+                    lga: lgaInput.value.trim(),
+
+                    city: document.getElementById(
+                        "customer-city"
+                    ).value.trim(),
+
+                    address: document.getElementById(
+                        "customer-address"
+                    ).value.trim()
+
+                },
+
+                products: cart,
+
+                total: getTotal(),
+
+                paymentMethod: payment.value,
+
+                date: new Date().toLocaleString()
+
+            };
+
+            console.log("Prepared order:", order);
+
+            alert(
+                "Thank you, " + order.customer.name +
+                "!\n\nYour order " + order.orderNumber +
+                " has been prepared.\n\nDelivery Location: " +
+                order.customer.city + ", " +
+                order.customer.lga + ", " +
+                order.customer.state +
+                "\n\nTotal: " + money(order.total) +
+                "\n\nPayment is not yet connected. " +
+                "Please do not make a transfer."
+            );
+
+        });
+
+});
+
+</script>
+
+</body>
+</html>

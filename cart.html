@@ -1,0 +1,201 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Shopping Cart | Reals Gadgets</title>
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+        body { background: #f4f7fc; color: #102448; }
+        .cart-page { max-width: 950px; margin: 40px auto; padding: 20px; }
+        .cart-page h1 { margin-bottom: 25px; }
+        .cart-panel {
+            background: white; padding: 24px;
+            border-radius: 15px;
+            box-shadow: 0 8px 25px rgba(0,0,0,.06);
+        }
+        .cart-row {
+            display: flex; justify-content: space-between;
+            align-items: center; gap: 15px;
+            padding: 18px 0; border-bottom: 1px solid #e5eaf2;
+        }
+        .cart-row h3 { margin: 0 0 7px; }
+        .cart-row p { margin: 0; color: #68758a; }
+        .quantity { display: flex; align-items: center; gap: 10px; margin-top: 10px; }
+        .quantity button, .remove-button {
+            border: 0; border-radius: 6px; padding: 7px 12px;
+            cursor: pointer;
+        }
+        .quantity button { background: #e8f0fc; color: #102448; }
+        .remove-button { background: #fff0f0; color: #c62828; }
+        .summary { text-align: right; margin-top: 25px; }
+        .summary h2 { margin: 12px 0 20px; }
+.checkout-button, .continue-button {
+    display: inline-block;
+    position: relative;
+    z-index: 10;
+    pointer-events: auto;
+    padding: 14px 22px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: bold;
+    margin: 5px;
+    cursor: pointer;
+}
+
+.checkout-button {
+    background: #102448;
+    color: white;
+}
+        .checkout-button { background: #102448; color: white; }
+        .continue-button { background: #e8f0fc; color: #102448; }
+        .empty { text-align: center; padding: 35px 10px; color: #68758a; }
+        @media(max-width:600px) {
+            .cart-row { align-items: flex-start; }
+            .summary { text-align: center; }
+        }
+    </style>
+</head>
+<body>
+
+<header class="navbar">
+    <a href="index.html" class="logo">REALS<span>GADGETS.</span></a>
+    <nav class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="contact.html">Contact</a>
+    </nav>
+</header>
+
+<main class="cart-page">
+    <h1>Your Shopping Cart</h1>
+
+    <section class="cart-panel">
+        <div id="cart-items"></div>
+
+        <div class="summary" id="cart-summary" hidden>
+            <p>Subtotal</p>
+            <h2 id="cart-total">₦0</h2>
+            <p>Delivery charges will be confirmed during checkout.</p>
+            <a href="checkout.html" class="checkout-button">
+                Proceed to Checkout →
+            </a>
+        </div>
+
+        <div class="empty" id="empty-cart" hidden>
+            <h2>Your cart is empty</h2>
+            <p>You haven't selected any products yet.</p>
+            <a href="index.html" class="continue-button">Continue Shopping</a>
+        </div>
+
+        <a href="index.html" class="continue-button">← Continue Shopping</a>
+    </section>
+</main>
+
+<script>
+    let cart = JSON.parse(
+        localStorage.getItem("realsGadgetsCart") || "[]"
+    );
+
+    function money(amount) {
+        return "₦" + Number(amount).toLocaleString("en-NG");
+    }
+
+    function saveCart() {
+        localStorage.setItem("realsGadgetsCart", JSON.stringify(cart));
+    }
+
+    function renderCart() {
+        const container = document.getElementById("cart-items");
+        const summary = document.getElementById("cart-summary");
+        const empty = document.getElementById("empty-cart");
+
+        container.innerHTML = "";
+
+        if (cart.length === 0) {
+            summary.hidden = true;
+            empty.hidden = false;
+            return;
+        }
+
+        summary.hidden = false;
+        empty.hidden = true;
+
+        let total = 0;
+
+        cart.forEach((item, index) => {
+            const quantity = Number(item.quantity) || 1;
+            const price = Number(item.price) || 0;
+            const itemTotal = price * quantity;
+            total += itemTotal;
+
+            const row = document.createElement("div");
+            row.className = "cart-row";
+
+            const info = document.createElement("div");
+            const name = document.createElement("h3");
+            name.textContent = item.name;
+            const priceText = document.createElement("p");
+            priceText.textContent = money(price) + " each";
+
+            const controls = document.createElement("div");
+            controls.className = "quantity";
+
+            const minus = document.createElement("button");
+            minus.textContent = "−";
+            minus.onclick = () => changeQuantity(index, -1);
+
+            const qty = document.createElement("strong");
+            qty.textContent = quantity;
+
+            const plus = document.createElement("button");
+            plus.textContent = "+";
+            plus.onclick = () => changeQuantity(index, 1);
+
+            controls.append(minus, qty, plus);
+            info.append(name, priceText, controls);
+
+            const right = document.createElement("div");
+            right.style.textAlign = "right";
+
+            const subtotal = document.createElement("strong");
+            subtotal.textContent = money(itemTotal);
+
+            const remove = document.createElement("button");
+            remove.className = "remove-button";
+            remove.textContent = "Remove";
+            remove.style.display = "block";
+            remove.style.marginTop = "10px";
+            remove.onclick = () => removeItem(index);
+
+            right.append(subtotal, remove);
+            row.append(info, right);
+            container.appendChild(row);
+        });
+
+        document.getElementById("cart-total").textContent = money(total);
+    }
+
+    function changeQuantity(index, amount) {
+        cart[index].quantity += amount;
+
+        if (cart[index].quantity <= 0) {
+            cart.splice(index, 1);
+        }
+
+        saveCart();
+        renderCart();
+    }
+
+    function removeItem(index) {
+        cart.splice(index, 1);
+        saveCart();
+        renderCart();
+    }
+
+    renderCart();
+</script>
+
+</body>
+</html>

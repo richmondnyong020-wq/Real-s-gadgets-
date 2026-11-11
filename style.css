@@ -1,0 +1,1463 @@
+
+/* ==========================================
+   REALS GADGETS - PREMIUM SHOPPING DESIGN
+   BRAND: NAVY BLUE AND WHITE
+========================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
+
+:root {
+    --navy: #071D49;
+    --blue: #1677E8;
+    --light-blue: #EAF3FF;
+    --white: #FFFFFF;
+    --background: #F4F7FC;
+    --text: #17243A;
+    --muted: #748198;
+    --border: #E5EAF2;
+    --shadow: 0 5px 20px rgba(7,29,73,0.08);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background: var(--background);
+    color: var(--text);
+    line-height: 1.6;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+button {
+    cursor: pointer;
+    font-family: inherit;
+    border: none;
+}
+
+/* TOP NAVIGATION */
+
+.navbar {
+    background: var(--navy);
+    color: white;
+    min-height: 75px;
+    padding: 15px 6%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 3px 12px rgba(0,0,0,0.15);
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: 900;
+    letter-spacing: -1px;
+    white-space: nowrap;
+}
+
+.logo span {
+    color: #55A5FF;
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    gap: 28px;
+}
+
+.nav-links a {
+    color: white;
+    font-size: 14px;
+    font-weight: 600;
+    transition: 0.3s;
+}
+
+.nav-links a:hover {
+    color: #65B1FF;
+}
+
+.cart-button {
+    background: #FFFFFF;
+    color: var(--navy);
+    padding: 11px 18px;
+    border-radius: 8px;
+    font-size: 13px;
+    font-weight: 800;
+    white-space: nowrap;
+}
+
+.cart-button:hover {
+    background: #DDEBFF;
+}
+
+/* HERO BANNER */
+
+.hero {
+    min-height: 420px;
+    padding: 65px 7%;
+    display: flex;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+    background:
+        radial-gradient(circle at 85% 30%, #347BCB 0%, transparent 30%),
+        linear-gradient(120deg, #061737, #0C3677 65%, #1677E8);
+    color: white;
+}
+
+.hero::after {
+    content: "TECH";
+    position: absolute;
+    right: -15px;
+    bottom: -55px;
+    font-size: clamp(100px, 20vw, 240px);
+    font-weight: 900;
+    color: rgba(255,255,255,0.06);
+    pointer-events: none;
+}
+
+.hero-content {
+    max-width: 620px;
+    position: relative;
+    z-index: 2;
+}
+
+.hero-content > p:first-child {
+    color: #A8D2FF;
+    font-weight: 800;
+    font-size: 13px;
+    letter-spacing: 3px;
+    margin-bottom: 18px;
+}
+
+.hero-content h1 {
+    font-size: clamp(40px, 6vw, 68px);
+    font-weight: 900;
+    line-height: 1.1;
+    margin-bottom: 20px;
+}
+
+.hero-content h1 span {
+    color: #66B5FF;
+}
+
+.hero-content p {
+    color: #E1ECFA;
+    font-size: 16px;
+    margin-bottom: 28px;
+    max-width: 490px;
+}
+
+.shop-button {
+    display: inline-block;
+    background: white;
+    color: var(--navy);
+    padding: 15px 28px;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 800;
+    transition: 0.3s;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.15);
+}
+
+.shop-button:hover {
+    background: #DCEBFF;
+    transform: translateY(-3px);
+}
+
+/* GENERAL SECTIONS */
+
+.section {
+    padding: 60px 6%;
+}
+
+.section-heading {
+    text-align: left;
+    margin-bottom: 30px;
+}
+
+.section-heading h2 {
+    color: var(--navy);
+    font-size: clamp(23px, 4vw, 32px);
+    font-weight: 900;
+    position: relative;
+    display: inline-block;
+}
+
+.section-heading h2::after {
+    content: "";
+    display: block;
+    width: 55px;
+    height: 4px;
+    background: var(--blue);
+    border-radius: 10px;
+    margin-top: 8px;
+}
+
+.section-heading p {
+    color: var(--muted);
+    font-size: 14px;
+    margin-top: 9px;
+}
+
+/* CATEGORIES */
+
+.categories {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+}
+
+.category-card {
+    background: white;
+    padding: 20px;
+    text-align: center;
+    border-radius: 13px;
+    border: 1px solid var(--border);
+    box-shadow: var(--shadow);
+    transition: 0.3s;
+    overflow: hidden;
+}
+
+.category-card:hover {
+    transform: translateY(-6px);
+    border-color: var(--blue);
+}
+
+.category-card img {
+    width: 100%;
+    height: 100px;
+    object-fit: contain;
+    margin-bottom: 12px;
+}
+
+.category-card h3 {
+    color: var(--navy);
+    font-size: 14px;
+    font-weight: 800;
+}
+
+/* PRODUCT SECTION */
+
+#products {
+    background: #EDF3FC;
+}
+
+.products {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 22px;
+}
+
+.product-card {
+    background: white;
+    border-radius: 14px;
+    overflow: hidden;
+    border: 1px solid var(--border);
+    box-shadow: var(--shadow);
+    transition: 0.3s;
+    position: relative;
+}
+
+.product-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 12px 30px rgba(7,29,73,0.13);
+}
+
+.product-image {
+    background: #F5F8FD;
+    height: 225px;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.product-image img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+    transition: 0.3s;
+}
+
+.product-card:hover .product-image img {
+    transform: scale(1.06);
+}
+
+.product-info {
+    padding: 20px;
+}
+
+.product-info h3 {
+    font-size: 16px;
+    font-weight: 800;
+    color: var(--navy);
+    margin-bottom: 7px;
+}
+
+.product-info p {
+    color: var(--muted);
+    font-size: 13px;
+}
+
+.product-price {
+    color: var(--blue);
+    font-size: 21px;
+    font-weight: 900;
+    margin: 14px 0;
+}
+
+.add-cart {
+    width: 100%;
+    padding: 13px;
+    background: var(--navy);
+    color: white;
+    border-radius: 8px;
+    font-size: 13px;
+    font-weight: 800;
+    transition: 0.3s;
+}
+
+.add-cart:hover {
+    background: var(--blue);
+}
+
+/* SHOPPING CART */
+
+#cart {
+    background: white;
+}
+
+.cart-container {
+    background: #F6F9FF;
+    padding: 25px;
+    border-radius: 13px;
+    border: 1px solid var(--border);
+}
+
+.cart-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+    padding: 17px 0;
+    border-bottom: 1px solid var(--border);
+}
+
+.cart-item strong {
+    color: var(--navy);
+}
+
+.cart-item p {
+    color: var(--muted);
+    font-size: 13px;
+}
+
+.cart-item button {
+    background: #FFEAEA;
+    color: #D72F36;
+    padding: 7px 10px;
+    border-radius: 5px;
+}
+
+.cart-total {
+    display: flex;
+    justify-content: space-between;
+    font-size: 21px;
+    font-weight: 900;
+    color: var(--navy);
+    margin-top: 22px;
+}
+
+/* CHECKOUT */
+
+#checkout {
+    background: var(--light-blue);
+}
+
+.checkout-container {
+    max-width: 650px;
+    margin: auto;
+    padding: 35px;
+    background: white;
+    border-radius: 15px;
+    box-shadow: var(--shadow);
+}
+
+.checkout-container h2 {
+    color: var(--navy);
+    font-size: 23px;
+    margin-bottom: 24px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    color: var(--navy);
+    font-weight: 700;
+    font-size: 13px;
+    margin-bottom: 8px;
+}
+
+.form-group input,
+.form-group textarea,
+.form-group select {
+    width: 100%;
+    padding: 14px;
+    border: 1px solid #DCE4F0;
+    background: #FAFCFF;
+    border-radius: 8px;
+    font-family: inherit;
+    font-size: 14px;
+    outline: none;
+}
+
+.form-group input:focus,
+.form-group textarea:focus,
+.form-group select:focus {
+    border-color: var(--blue);
+    box-shadow: 0 0 0 3px rgba(22,119,232,0.1);
+}
+
+.pay-button {
+    width: 100%;
+    background: var(--blue);
+    color: white;
+    padding: 16px;
+    border-radius: 8px;
+    font-size: 15px;
+    font-weight: 800;
+    transition: 0.3s;
+}
+
+.pay-button:hover {
+    background: var(--navy);
+}
+
+/* RECEIPT */
+
+.receipt {
+    max-width: 550px;
+    background: white;
+    margin: 40px auto;
+    padding: 35px;
+    border-radius: 14px;
+    border: 1px solid var(--border);
+    box-shadow: var(--shadow);
+}
+
+.receipt h2 {
+    text-align: center;
+    color: var(--blue);
+    margin-bottom: 20px;
+}
+
+.receipt-row {
+    display: flex;
+    justify-content: space-between;
+    padding: 13px 0;
+    border-bottom: 1px solid var(--border);
+}
+
+/* CONTACT */
+
+#contact {
+    background: white;
+    text-align: center;
+}
+
+#contact .section-heading {
+    text-align: center;
+}
+
+#contact .section-heading h2::after {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* FOOTER */
+
+.footer {
+    background: var(--navy);
+    color: white;
+    text-align: center;
+    padding: 50px 7%;
+}
+
+.footer h2 {
+    font-size: 27px;
+    font-weight: 900;
+}
+
+.footer span {
+    color: #60AEFF;
+}
+
+.footer p {
+    color: #CBD9EF;
+    font-size: 13px;
+    margin-top: 12px;
+}
+
+/* MOBILE DESIGN */
+
+@media (max-width: 768px) {
+
+    .navbar {
+        padding: 14px 4%;
+        gap: 10px;
+    }
+
+    .logo {
+        font-size: 19px;
+    }
+
+    .nav-links {
+        display: none;
+    }
+
+    .cart-button {
+        padding: 10px 12px;
+        font-size: 12px;
+    }
+
+    .hero {
+        min-height: 370px;
+        padding: 55px 6%;
+    }
+
+    .hero-content h1 {
+        font-size: 43px;
+    }
+
+    .hero-content p {
+        font-size: 14px;
+    }
+
+    .section {
+        padding: 42px 5%;
+    }
+
+    .categories {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 13px;
+    }
+
+    .category-card {
+        padding: 15px 10px;
+    }
+
+    .category-card img {
+        height: 85px;
+    }
+
+    .products {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 12px;
+    }
+
+    .product-image {
+        height: 155px;
+        padding: 12px;
+    }
+
+    .product-info {
+        padding: 12px;
+    }
+
+    .product-info h3 {
+        font-size: 13px;
+    }
+
+    .product-info p {
+        font-size: 11px;
+    }
+
+    .product-price {
+        font-size: 16px;
+    }
+
+    .add-cart {
+        padding: 11px 5px;
+        font-size: 11px;
+    }
+
+    .checkout-container {
+        padding: 22px 17px;
+    }
+
+    .cart-container {
+        padding: 16px;
+    }
+
+}
+
+@media (max-width: 360px) {
+
+    .logo {
+        font-size: 16px;
+    }
+
+    .products {
+        grid-template-columns: 1fr;
+    }
+
+    .hero-content h1 {
+        font-size: 36px;
+    }
+
+}
+
+
+/* ==========================================
+   REALS GADGETS - IMAGE ADVERT SLIDESHOW
+========================================== */
+
+.hero {
+    position: relative;
+    overflow: hidden;
+    min-height: 470px;
+}
+
+.hero-content {
+    width: 55%;
+    max-width: 620px;
+    position: relative;
+    z-index: 5;
+}
+
+.hero-advert {
+    position: absolute;
+    width: 36%;
+    height: 310px;
+    right: 4%;
+    top: 50%;
+    transform: translateY(-50%);
+    overflow: hidden;
+    z-index: 3;
+}
+
+.advert-slide {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+}
+
+.advert-slide.active {
+    display: flex;
+    opacity: 1;
+    animation: advertFadeIn 0.8s ease both;
+}
+
+.advert-slide.exit-left {
+    display: flex;
+    opacity: 0;
+    animation: advertFadeOut 0.8s ease both;
+}
+
+.advert-picture {
+    display: block;
+    width: 100%;
+    height: 100%;
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+    object-position: center;
+}
+
+@keyframes advertFadeIn {
+    from {
+        opacity: 0;
+        transform: translateX(45px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes advertFadeOut {
+    from {
+        opacity: 1;
+        transform: translateX(0);
+    }
+    to {
+        opacity: 0;
+        transform: translateX(-45px);
+    }
+}
+
+/* MOBILE SLIDESHOW */
+
+@media (max-width: 768px) {
+
+    .hero {
+        min-height: 0;
+        padding: 40px 6% 25px;
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .hero-content {
+        width: 100%;
+        max-width: 100%;
+    }
+
+    .hero-advert {
+        position: relative;
+        width: 100%;
+        height: 230px;
+        top: auto;
+        right: auto;
+        transform: none;
+        margin-top: 20px;
+    }
+
+    .advert-picture {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+        object-position: center;
+    }
+}
+
+@media (max-width: 360px) {
+    .hero-advert {
+        height: 190px;
+    }
+}
+
+/* =====================================
+   PROFESSIONAL HOMEPAGE SEARCH SECTION
+===================================== */
+
+.home-search-section {
+    padding: 45px 20px;
+    background: linear-gradient(135deg, #eef5ff, #ffffff);
+    text-align: center;
+}
+
+.home-search-section .search-content {
+    max-width: 850px;
+    margin: auto;
+}
+
+.home-search-section h2 {
+    color: #071b3a;
+    font-size: 27px;
+    font-weight: 800;
+    margin-bottom: 10px;
+}
+
+.home-search-section p {
+    color: #64748b;
+    font-size: 15px;
+    margin-bottom: 25px;
+}
+
+.professional-search {
+    display: flex;
+    align-items: center;
+    max-width: 680px;
+    margin: 0 auto;
+    padding: 6px;
+    background: #ffffff;
+    border: 2px solid #173d70;
+    border-radius: 12px;
+    box-shadow: 0 5px 20px rgba(7, 27, 58, 0.10);
+    transition: 0.3s ease;
+}
+
+.professional-search:focus-within {
+    border-color: #2875c7;
+    box-shadow: 0 0 0 4px rgba(40, 117, 199, 0.13);
+}
+
+.professional-search input {
+    flex: 1;
+    min-width: 0;
+    padding: 15px 14px;
+    border: none;
+    outline: none;
+    background: transparent;
+    color: #071b3a;
+    font-size: 15px;
+}
+
+.professional-search input::placeholder {
+    color: #94a3b8;
+}
+
+.professional-search button {
+    padding: 14px 22px;
+    background: #102b55;
+    color: #ffffff;
+    border: none;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+.professional-search button:hover {
+    background: #19477e;
+}
+
+/* MOBILE SEARCH */
+
+@media (max-width: 480px) {
+    .home-search-section {
+        padding: 35px 15px;
+    }
+
+    .home-search-section h2 {
+        font-size: 22px;
+    }
+
+    .home-search-section p {
+        font-size: 13px;
+        line-height: 1.6;
+    }
+
+    .professional-search {
+        padding: 5px;
+    }
+
+    .professional-search input {
+        padding: 12px 8px;
+        font-size: 12px;
+    }
+
+    .professional-search button {
+        padding: 12px 13px;
+        font-size: 12px;
+    }
+}
+
+/* =====================================
+   PROFESSIONAL HOMEPAGE SEARCH SECTION
+===================================== */
+
+.home-search-section {
+    padding: 45px 20px;
+    background: linear-gradient(135deg, #eef5ff, #ffffff);
+    text-align: center;
+}
+
+.home-search-section .search-content {
+    max-width: 850px;
+    margin: auto;
+}
+
+.home-search-section h2 {
+    color: #071b3a;
+    font-size: 27px;
+    font-weight: 800;
+    margin-bottom: 10px;
+}
+
+.home-search-section p {
+    color: #64748b;
+    font-size: 15px;
+    margin-bottom: 25px;
+}
+
+.professional-search {
+    display: flex;
+    align-items: center;
+    max-width: 680px;
+    margin: 0 auto;
+    padding: 6px;
+    background: #ffffff;
+    border: 2px solid #173d70;
+    border-radius: 12px;
+    box-shadow: 0 5px 20px rgba(7, 27, 58, 0.10);
+    transition: 0.3s ease;
+}
+
+.professional-search:focus-within {
+    border-color: #2875c7;
+    box-shadow: 0 0 0 4px rgba(40, 117, 199, 0.13);
+}
+
+.professional-search input {
+    flex: 1;
+    min-width: 0;
+    padding: 15px 14px;
+    border: none;
+    outline: none;
+    background: transparent;
+    color: #071b3a;
+    font-size: 15px;
+}
+
+.professional-search input::placeholder {
+    color: #94a3b8;
+}
+
+.professional-search button {
+    padding: 14px 22px;
+    background: #102b55;
+    color: #ffffff;
+    border: none;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+.professional-search button:hover {
+    background: #19477e;
+}
+
+/* MOBILE SEARCH */
+
+@media (max-width: 480px) {
+    .home-search-section {
+        padding: 35px 15px;
+    }
+
+    .home-search-section h2 {
+        font-size: 22px;
+    }
+
+    .home-search-section p {
+        font-size: 13px;
+        line-height: 1.6;
+    }
+
+    .professional-search {
+        padding: 5px;
+    }
+
+    .professional-search input {
+        padding: 12px 8px;
+        font-size: 12px;
+    }
+
+    .professional-search button {
+        padding: 12px 13px;
+        font-size: 12px;
+    }
+}
+
+/* ==========================================
+   REALS GADGETS - PREMIUM SEARCH SECTION
+========================================== */
+
+.home-search-section {
+    background: linear-gradient(
+        135deg,
+        #b5d5ff 0%,
+        #8dbaf2 45%,
+        #c0dcff 100%
+    ) !important;
+
+    padding: 55px 18px !important;
+    text-align: center;
+    position: relative;
+    overflow: visible;
+}
+
+/* SEARCH LABEL */
+
+.search-label {
+    display: inline-block;
+    background: #174f91 !important;
+    color: #ffffff !important;
+    border: 1px solid rgba(255,255,255,0.5) !important;
+    border-radius: 30px;
+    padding: 8px 18px;
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 1.7px;
+    margin-bottom: 14px;
+}
+
+/* BEAUTIFUL MAIN HEADING */
+
+.search-content h2 {
+    color: #071b3a !important;
+    font-size: 32px !important;
+    font-weight: 900 !important;
+    letter-spacing: -0.8px;
+    line-height: 1.25;
+    margin: 8px 0 12px !important;
+    text-shadow: 0 2px 1px rgba(255,255,255,0.35);
+}
+
+/* DESCRIPTION */
+
+.search-content p {
+    color: #173d70 !important;
+    font-size: 15px !important;
+    font-weight: 500;
+    line-height: 1.7;
+    margin-bottom: 26px !important;
+}
+
+/* SEARCH BOX */
+
+.professional-search {
+    background: #ffffff !important;
+    border: 2px solid #174f91 !important;
+    border-radius: 14px !important;
+    padding: 7px !important;
+    box-shadow:
+        0 8px 25px rgba(7, 27, 58, 0.20),
+        0 2px 5px rgba(255,255,255,0.5) !important;
+}
+
+/* SEARCH INPUT */
+
+.professional-search input {
+    color: #071b3a !important;
+    font-size: 15px !important;
+    font-weight: 500;
+}
+
+.professional-search input::placeholder {
+    color: #8093ad !important;
+}
+
+/* SEARCH BUTTON */
+
+.professional-search button {
+    background: linear-gradient(
+        135deg,
+        #174f91,
+        #071b3a
+    ) !important;
+
+    color: #ffffff !important;
+    border-radius: 10px !important;
+    padding: 15px 25px !important;
+    font-weight: 800 !important;
+    letter-spacing: 0.7px;
+    box-shadow: 0 4px 10px rgba(7,27,58,0.2);
+}
+
+/* MOBILE HEADING */
+
+@media (max-width: 480px) {
+    .home-search-section {
+        padding: 42px 14px !important;
+    }
+
+    .search-content h2 {
+        font-size: 25px !important;
+        letter-spacing: -0.5px;
+    }
+
+    .search-content p {
+        font-size: 13px !important;
+    }
+
+    .professional-search button {
+        padding: 13px 15px !important;
+        font-size: 11px !important;
+    }
+}
+
+/* ==========================================
+   REALS GADGETS - DEEP ROYAL BLUE SEARCH
+========================================== */
+
+.home-search-section {
+    background: linear-gradient(
+        135deg,
+        #397fc9 0%,
+        #2868ad 50%,
+        #174f91 100%
+    ) !important;
+
+    padding: 55px 18px !important;
+    text-align: center;
+    position: relative;
+    overflow: visible;
+}
+
+/* SEARCH LABEL */
+
+.search-label {
+    display: inline-block;
+    background: #071b3a !important;
+    color: #ffffff !important;
+    border: 1px solid rgba(255,255,255,0.35) !important;
+    border-radius: 30px;
+    padding: 8px 18px;
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 1.7px;
+    margin-bottom: 14px;
+}
+
+/* MAIN HEADING */
+
+.search-content h2 {
+    color: #ffffff !important;
+    font-size: 32px !important;
+    font-weight: 900 !important;
+    letter-spacing: -0.8px;
+    line-height: 1.25;
+    margin: 8px 0 12px !important;
+    text-shadow: 0 2px 5px rgba(0,0,0,0.18);
+}
+
+/* DESCRIPTION */
+
+.search-content p {
+    color: #e5f0ff !important;
+    font-size: 15px !important;
+    font-weight: 500;
+    line-height: 1.7;
+    margin-bottom: 26px !important;
+}
+
+/* SEARCH BOX */
+
+.professional-search {
+    background: #ffffff !important;
+    border: 3px solid #071b3a !important;
+    border-radius: 14px !important;
+    padding: 7px !important;
+    box-shadow:
+        0 8px 25px rgba(0, 0, 0, 0.25),
+        0 0 0 3px rgba(255,255,255,0.15) !important;
+}
+
+/* SEARCH INPUT */
+
+.professional-search input {
+    color: #071b3a !important;
+    font-size: 15px !important;
+    font-weight: 500;
+}
+
+.professional-search input::placeholder {
+    color: #8093ad !important;
+}
+
+/* SEARCH BUTTON */
+
+.professional-search button {
+    background: linear-gradient(
+        135deg,
+        #071b3a,
+        #123c70
+    ) !important;
+
+    color: #ffffff !important;
+    border-radius: 10px !important;
+    padding: 15px 25px !important;
+    font-weight: 800 !important;
+    letter-spacing: 0.7px;
+    box-shadow: 0 4px 10px rgba(7,27,58,0.25);
+}
+
+/* LIVE SUGGESTIONS */
+
+.search-suggestions {
+    background: #ffffff !important;
+    border: 2px solid #071b3a !important;
+}
+
+/* MOBILE */
+
+@media (max-width: 480px) {
+    .home-search-section {
+        padding: 42px 14px !important;
+    }
+
+    .search-content h2 {
+        font-size: 25px !important;
+        letter-spacing: -0.5px;
+    }
+
+    .search-content p {
+        font-size: 13px !important;
+    }
+
+    .professional-search button {
+        padding: 13px 15px !important;
+        font-size: 11px !important;
+    }
+}
+
+/* ==========================================
+   REALS GADGETS - PREMIUM CHAT DESIGN
+========================================== */
+
+/* CHAT WINDOW */
+
+#rg-chat-box {
+    background: #eef3fa !important;
+    border: 2px solid #174f91 !important;
+    border-radius: 18px !important;
+    box-shadow: 0 12px 35px rgba(7, 27, 58, 0.25) !important;
+    font-family: Arial, sans-serif !important;
+}
+
+/* CHAT HEADER */
+
+.rg-chat-header {
+    background: linear-gradient(
+        135deg,
+        #071b3a,
+        #174f91
+    ) !important;
+
+    color: #ffffff !important;
+    padding: 18px !important;
+    border-bottom: 3px solid #f0b429 !important;
+}
+
+.rg-chat-header strong {
+    font-size: 16px !important;
+    font-weight: 800 !important;
+}
+
+.rg-chat-header small {
+    color: #dceaff !important;
+}
+
+/* CONVERSATION AREA */
+
+#rg-chat-messages {
+    background: #eaf1fa !important;
+    padding: 18px 12px !important;
+    gap: 18px !important;
+}
+
+/* MESSAGE BUBBLES */
+
+.rg-message {
+    position: relative;
+    max-width: 78% !important;
+    padding: 13px 15px !important;
+    border-radius: 16px !important;
+    font-size: 13px !important;
+    line-height: 1.7 !important;
+    box-shadow: 0 3px 9px rgba(7, 27, 58, 0.07);
+}
+
+/* BOT MESSAGE */
+
+.rg-bot {
+    align-self: flex-start !important;
+    margin-left: 43px !important;
+    background: #ffffff !important;
+    color: #102b55 !important;
+    border: 1px solid #d4dfed !important;
+    border-bottom-left-radius: 4px !important;
+}
+
+/* ROBOT ICON BESIDE EVERY BOT MESSAGE */
+
+.rg-bot::before {
+    content: "🤖";
+    position: absolute;
+    left: -43px;
+    top: 2px;
+    width: 34px;
+    height: 34px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #ffffff;
+    border: 2px solid #174f91;
+    border-radius: 50%;
+    font-size: 19px;
+    box-shadow: 0 3px 8px rgba(7, 27, 58, 0.12);
+}
+
+/* CUSTOMER MESSAGE */
+
+.rg-user {
+    align-self: flex-end !important;
+    margin-left: auto !important;
+    background: linear-gradient(
+        135deg,
+        #174f91,
+        #071b3a
+    ) !important;
+
+    color: #ffffff !important;
+    border: none !important;
+    border-bottom-right-radius: 4px !important;
+}
+
+/* LINKS INSIDE BOT ANSWERS */
+
+.rg-message a {
+    color: #1765b5 !important;
+    font-weight: 800 !important;
+    text-decoration: none !important;
+}
+
+/* QUICK REPLY BUTTONS */
+
+.rg-quick-actions {
+    background: #ffffff !important;
+    border-top: 1px solid #d4dfed !important;
+    padding: 12px !important;
+    gap: 8px !important;
+}
+
+.rg-quick-actions button {
+    background: #edf4ff !important;
+    color: #174f91 !important;
+    border: 1px solid #174f91 !important;
+    border-radius: 20px !important;
+    padding: 8px 12px !important;
+    font-weight: 700 !important;
+    transition: 0.2s ease;
+}
+
+.rg-quick-actions button:hover {
+    background: #174f91 !important;
+    color: #ffffff !important;
+}
+
+/* MESSAGE INPUT AREA */
+
+#rg-chat-form {
+    background: #ffffff !important;
+    border-top: 1px solid #d4dfed !important;
+    padding: 12px !important;
+}
+
+#rg-chat-input {
+    background: #f5f8fd !important;
+    color: #071b3a !important;
+    border: 1.5px solid #b9cbe2 !important;
+    border-radius: 25px !important;
+    padding: 12px 15px !important;
+}
+
+#rg-chat-input:focus {
+    border-color: #174f91 !important;
+}
+
+/* SEND BUTTON */
+
+#rg-chat-form button {
+    background: #174f91 !important;
+    color: #ffffff !important;
+    border: 2px solid #f0b429 !important;
+}
+
+/* FULL SUPPORT PAGE */
+
+body.support-page {
+    background: #eaf1fa !important;
+}
+
+.support-chat-area {
+    background: #eaf1fa !important;
+    border-radius: 18px;
+    overflow: hidden;
+}
+
+/* MOBILE */
+
+@media (max-width: 480px) {
+    #rg-chat-box {
+        border-radius: 15px !important;
+    }
+
+    #rg-chat-messages {
+        padding: 14px 9px !important;
+    }
+
+    .rg-message {
+        max-width: 80% !important;
+        font-size: 12px !important;
+    }
+
+    .rg-bot {
+        margin-left: 40px !important;
+    }
+
+    .rg-bot::before {
+        left: -40px;
+        width: 32px;
+        height: 32px;
+        font-size: 17px;
+    }
+}
+
+/* =================================
+   REALS GADGETS PROFESSIONAL LOGO
+================================= */
+
+.navbar .logo {
+    display: flex !important;
+    align-items: center !important;
+    gap: 10px !important;
+    text-decoration: none !important;
+    flex-shrink: 0;
+}
+
+.navbar .site-logo {
+    width: 53px !important;
+    height: 53px !important;
+    object-fit: contain !important;
+    display: block !important;
+    border-radius: 50%;
+}
+
+.navbar .logo-text {
+    color: #ffffff !important;
+    font-size: 19px !important;
+    font-weight: 900 !important;
+    letter-spacing: .4px;
+    white-space: nowrap;
+}
+
+.navbar .logo-text span {
+    color: #28a9f5 !important;
+}
+
+/* MOBILE LOGO SIZE */
+
+@media (max-width: 600px) {
+    .navbar .logo {
+        gap: 7px !important;
+    }
+
+    .navbar .site-logo {
+        width: 43px !important;
+        height: 43px !important;
+    }
+
+    .navbar .logo-text {
+        font-size: 15px !important;
+    }
+}

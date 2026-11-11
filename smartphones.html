@@ -1,0 +1,783 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Smartphones | Reals Gadgets</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            background: #f5f7fb;
+            color: #26344a;
+            font-family: Arial, sans-serif;
+        }
+
+        /* NAVIGATION */
+        .phone-navbar {
+            background: #102b55;
+            color: white;
+            padding: 17px 6%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .phone-logo {
+            color: white;
+            text-decoration: none;
+            font-size: 23px;
+            font-weight: 800;
+        }
+
+        .phone-logo span {
+            color: #f0b429;
+        }
+
+        .phone-nav {
+            display: flex;
+            align-items: center;
+            gap: 22px;
+        }
+
+        .phone-nav a {
+            color: white;
+            text-decoration: none;
+            font-size: 14px;
+        }
+
+        .phone-nav a:hover {
+            color: #f0b429;
+        }
+
+        .phone-cart {
+            background: #f0b429;
+            color: #102b55 !important;
+            padding: 10px 16px;
+            border-radius: 6px;
+            font-weight: bold;
+        }
+
+        /* HERO */
+        .phone-hero {
+            background: linear-gradient(120deg, #102b55, #1b4c83);
+            color: white;
+            padding: 55px 7%;
+            text-align: center;
+        }
+
+        .phone-hero .eyebrow {
+            color: #f0b429;
+            font-weight: bold;
+            letter-spacing: 2px;
+            font-size: 12px;
+        }
+
+        .phone-hero h1 {
+            font-size: clamp(30px, 5vw, 48px);
+            margin: 12px 0;
+        }
+
+        .phone-hero p {
+            color: #e1eaf6;
+            max-width: 550px;
+            line-height: 1.7;
+            margin: auto;
+        }
+
+        .hero-line {
+            width: 65px;
+            height: 4px;
+            background: #f0b429;
+            margin: 20px auto 0;
+            border-radius: 10px;
+        }
+
+        /* PAGE CONTENT */
+        .phone-container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 35px auto;
+        }
+
+        .breadcrumb {
+            font-size: 13px;
+            margin-bottom: 25px;
+            color: #777;
+        }
+
+        .breadcrumb a {
+            color: #174a87;
+            text-decoration: none;
+        }
+
+        .section-title {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 15px;
+            flex-wrap: wrap;
+            margin-bottom: 18px;
+        }
+
+        .section-title h2 {
+            color: #102b55;
+            font-size: 25px;
+            margin: 0;
+        }
+
+        .section-title p {
+            color: #777;
+            font-size: 13px;
+        }
+
+        /* SEARCH */
+        .search-box {
+            display: flex;
+            max-width: 650px;
+            margin: 22px 0;
+            background: white;
+            border: 1px solid #dce3ed;
+            border-radius: 9px;
+            overflow: hidden;
+            box-shadow: 0 3px 12px rgba(0,0,0,0.04);
+        }
+
+        .search-box input {
+            flex: 1;
+            min-width: 0;
+            border: none;
+            outline: none;
+            padding: 16px;
+            font-size: 14px;
+        }
+
+        .search-box button {
+            background: #102b55;
+            color: white;
+            border: none;
+            padding: 0 23px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        /* FILTERS */
+        .phone-filters {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin: 25px 0;
+        }
+
+        .filter-btn {
+            padding: 10px 17px;
+            border: 1px solid #dce3ed;
+            background: white;
+            color: #102b55;
+            border-radius: 25px;
+            cursor: pointer;
+            font-size: 13px;
+            font-weight: bold;
+        }
+
+        .filter-btn.active,
+        .filter-btn:hover {
+            background: #102b55;
+            color: white;
+            border-color: #102b55;
+        }
+
+        /* PRODUCT GRID */
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(4, minmax(0, 1fr));
+            gap: 20px;
+        }
+
+        .product-card {
+            background: white;
+            border: 1px solid #e6eaf0;
+            border-radius: 12px;
+            overflow: hidden;
+            transition: 0.25s;
+            box-shadow: 0 4px 15px rgba(16,43,85,0.04);
+        }
+
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 9px 24px rgba(16,43,85,0.12);
+        }
+
+        .product-image {
+            height: 210px;
+            background: #f8f9fc;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 15px;
+        }
+
+        .product-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+
+        .product-info {
+            padding: 17px;
+        }
+
+        .condition {
+            display: inline-block;
+            padding: 6px 10px;
+            border-radius: 20px;
+            background: #e9f1ff;
+            color: #174a87;
+            font-size: 11px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .condition.new {
+            background: #e6f7ed;
+            color: #16834a;
+        }
+
+        .product-info h3 {
+            color: #102b55;
+            font-size: 16px;
+            margin: 5px 0 9px;
+        }
+
+        .product-info p {
+            color: #777;
+            font-size: 12px;
+            line-height: 1.6;
+            margin: 5px 0;
+        }
+
+        .product-price {
+            color: #102b55;
+            font-size: 21px;
+            font-weight: 800;
+            margin: 15px 0;
+        }
+
+        .product-card button {
+            width: 100%;
+            border: none;
+            padding: 12px;
+            border-radius: 6px;
+            margin-top: 8px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: 0.2s;
+        }
+
+        .details-btn {
+            background: #102b55;
+            color: white;
+        }
+
+        .details-btn:hover {
+            background: #1c477b;
+        }
+
+        .cart-btn {
+            background: #f0b429;
+            color: #102b55;
+        }
+
+        .cart-btn:hover {
+            background: #d99b12;
+        }
+
+        .no-results {
+            display: none;
+            background: white;
+            text-align: center;
+            padding: 35px;
+            border-radius: 10px;
+            color: #777;
+        }
+
+        /* TRUST SECTION */
+        .phone-trust {
+            background: white;
+            padding: 25px;
+            border-radius: 10px;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            text-align: center;
+            margin: 45px 0;
+        }
+
+        .phone-trust h3 {
+            color: #102b55;
+            font-size: 14px;
+        }
+
+        .phone-trust p {
+            color: #777;
+            font-size: 12px;
+        }
+
+        /* FOOTER */
+        .phone-footer {
+            background: #102b55;
+            color: white;
+            text-align: center;
+            padding: 30px 15px;
+            margin-top: 45px;
+        }
+
+        .phone-footer span {
+            color: #f0b429;
+        }
+
+        .phone-footer p {
+            font-size: 13px;
+            color: #d5dfed;
+        }
+
+        @media (max-width: 900px) {
+            .product-grid {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+        }
+
+        @media (max-width: 600px) {
+            .phone-navbar {
+                justify-content: center;
+                text-align: center;
+            }
+
+            .phone-nav {
+                width: 100%;
+                justify-content: center;
+                gap: 13px;
+                flex-wrap: wrap;
+            }
+
+            .phone-nav a {
+                font-size: 12px;
+            }
+
+            .phone-hero {
+                padding: 40px 6%;
+            }
+
+            .phone-container {
+                width: 92%;
+            }
+
+            .product-grid {
+                gap: 12px;
+            }
+
+            .product-image {
+                height: 155px;
+            }
+
+            .product-info {
+                padding: 12px;
+            }
+
+            .product-info h3 {
+                font-size: 14px;
+            }
+
+            .product-price {
+                font-size: 17px;
+            }
+
+            .phone-trust {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- NAVIGATION -->
+    <header class="phone-navbar">
+
+        <a href="index.html" class="phone-logo">
+            REALS<span>GADGETS.</span>
+        </a>
+
+        <nav class="phone-nav">
+            <a href="index.html">Home</a>
+            <a href="index.html#categories">Categories</a>
+            <a href="contact.html">Contact</a>
+            <a href="cart.html" class="phone-cart">
+                🛒 Cart <span id="cart-count">0</span>
+            </a>
+        </nav>
+
+    </header>
+
+
+    <!-- HERO BANNER -->
+    <section class="phone-hero">
+
+        <div class="eyebrow">REALS GADGETS COLLECTION</div>
+
+        <h1>Discover Your Next Smartphone.</h1>
+
+        <p>
+            Explore quality smartphones from trusted brands.
+            Find the right device for your lifestyle and budget.
+        </p>
+
+        <div class="hero-line"></div>
+
+    </section>
+
+
+    <!-- MAIN CONTENT -->
+    <main class="phone-container">
+
+        <div class="breadcrumb">
+            <a href="index.html">Home</a> &nbsp; / &nbsp;
+            <span>Smartphones</span>
+        </div>
+
+
+        <div class="section-title">
+            <div>
+                <h2>Shop Smartphones</h2>
+                <p>Find your favourite smartphone at Reals Gadgets.</p>
+            </div>
+        </div>
+
+
+        <!-- SEARCH -->
+        <div class="search-box">
+            <input
+                type="search"
+                id="phone-search"
+                placeholder="Search iPhone, Samsung, Tecno..."
+            >
+
+            <button type="button">Search</button>
+        </div>
+
+
+        <!-- FILTER BUTTONS -->
+        <div class="phone-filters">
+
+            <button class="filter-btn active" data-filter="all">All Phones</button>
+            <button class="filter-btn" data-filter="iphone">iPhone</button>
+            <button class="filter-btn" data-filter="samsung">Samsung</button>
+            <button class="filter-btn" data-filter="tecno">Tecno</button>
+            <button class="filter-btn" data-filter="infinix">Infinix</button>
+
+        </div>
+
+
+        <!-- PRODUCTS -->
+        <div class="product-grid" id="product-grid">
+
+            <div class="product-card" data-name="iphone 13 apple" data-brand="iphone">
+
+                <div class="product-image">
+                    <img src="https://placehold.co/300x300?text=iPhone+13" alt="Apple iPhone 13">
+                </div>
+
+                <div class="product-info">
+
+                    <span class="condition">UK Used</span>
+
+                    <h3>Apple iPhone 13</h3>
+
+                    <p>128GB Storage | 4GB RAM</p>
+
+                    <div class="product-price">₦450,000</div>
+
+                    <button class="details-btn"
+                        onclick="showDetails('Apple iPhone 13','128GB','4GB RAM','UK Used','₦450,000')">
+                        View Details
+                    </button>
+
+                    <button class="cart-btn"
+                        onclick="addProduct('Apple iPhone 13',450000)">
+                        Add to Cart
+                    </button>
+
+                </div>
+            </div>
+
+
+            <div class="product-card" data-name="samsung galaxy s22" data-brand="samsung">
+
+                <div class="product-image">
+                    <img src="https://placehold.co/300x300?text=Galaxy+S22" alt="Samsung Galaxy S22">
+                </div>
+
+                <div class="product-info">
+
+                    <span class="condition">UK Used</span>
+
+                    <h3>Samsung Galaxy S22</h3>
+
+                    <p>128GB Storage | 8GB RAM</p>
+
+                    <div class="product-price">₦520,000</div>
+
+                    <button class="details-btn"
+                        onclick="showDetails('Samsung Galaxy S22','128GB','8GB RAM','UK Used','₦520,000')">
+                        View Details
+                    </button>
+
+                    <button class="cart-btn"
+                        onclick="addProduct('Samsung Galaxy S22',520000)">
+                        Add to Cart
+                    </button>
+
+                </div>
+            </div>
+
+
+            <div class="product-card" data-name="iphone 14 apple" data-brand="iphone">
+
+                <div class="product-image">
+                    <img src="https://placehold.co/300x300?text=iPhone+14" alt="Apple iPhone 14">
+                </div>
+
+                <div class="product-info">
+
+                    <span class="condition new">Brand New</span>
+
+                    <h3>Apple iPhone 14</h3>
+
+                    <p>128GB Storage | 6GB RAM</p>
+
+                    <div class="product-price">₦850,000</div>
+
+                    <button class="details-btn"
+                        onclick="showDetails('Apple iPhone 14','128GB','6GB RAM','Brand New','₦850,000')">
+                        View Details
+                    </button>
+
+                    <button class="cart-btn"
+                        onclick="addProduct('Apple iPhone 14',850000)">
+                        Add to Cart
+                    </button>
+
+                </div>
+            </div>
+
+
+            <div class="product-card" data-name="samsung galaxy a54" data-brand="samsung">
+
+                <div class="product-image">
+                    <img src="https://placehold.co/300x300?text=Galaxy+A54" alt="Samsung Galaxy A54">
+                </div>
+
+                <div class="product-info">
+
+                    <span class="condition">UK Used</span>
+
+                    <h3>Samsung Galaxy A54</h3>
+
+                    <p>128GB Storage | 8GB RAM</p>
+
+                    <div class="product-price">₦380,000</div>
+
+                    <button class="details-btn"
+                        onclick="showDetails('Samsung Galaxy A54','128GB','8GB RAM','UK Used','₦380,000')">
+                        View Details
+                    </button>
+
+                    <button class="cart-btn"
+                        onclick="addProduct('Samsung Galaxy A54',380000)">
+                        Add to Cart
+                    </button>
+
+                </div>
+            </div>
+
+        </div>
+
+
+        <p class="no-results" id="no-results">
+            No matching smartphones found. Try another search.
+        </p>
+
+
+        <!-- TRUST INFORMATION -->
+        <section class="phone-trust">
+
+            <div>
+                <h3>✓ Quality Gadgets</h3>
+                <p>Shop with confidence.</p>
+            </div>
+
+            <div>
+                <h3>✓ Customer Support</h3>
+                <p>We're here to help.</p>
+            </div>
+
+            <div>
+                <h3>✓ Convenient Shopping</h3>
+                <p>Find your next gadget with ease.</p>
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- FOOTER -->
+    <footer class="phone-footer">
+
+        <h2>REALS<span>GADGETS.</span></h2>
+
+        <p>Upgrade Your World. One Gadget at a Time.</p>
+
+        <p>© 2026 Reals Gadgets. All Rights Reserved.</p>
+
+    </footer>
+
+
+    <!-- JAVASCRIPT -->
+    <script>
+
+        // SEARCH PRODUCTS
+        const searchInput = document.getElementById("phone-search");
+        const products = document.querySelectorAll(".product-card");
+        const filterButtons = document.querySelectorAll(".filter-btn");
+
+        let selectedBrand = "all";
+
+        function filterProducts() {
+
+            const search = searchInput.value.toLowerCase();
+            let visible = 0;
+
+            products.forEach(product => {
+
+                const name = product.dataset.name;
+                const brand = product.dataset.brand;
+
+                const matchesSearch = name.includes(search);
+                const matchesBrand =
+                    selectedBrand === "all" || brand === selectedBrand;
+
+                const show = matchesSearch && matchesBrand;
+
+                product.style.display = show ? "" : "none";
+
+                if (show) visible++;
+
+            });
+
+            document.getElementById("no-results").style.display =
+                visible ? "none" : "block";
+        }
+
+        searchInput.addEventListener("input", filterProducts);
+
+        filterButtons.forEach(button => {
+
+            button.addEventListener("click", function() {
+
+                filterButtons.forEach(btn =>
+                    btn.classList.remove("active")
+                );
+
+                this.classList.add("active");
+
+                selectedBrand = this.dataset.filter;
+
+                filterProducts();
+
+            });
+
+        });
+
+
+        // PRODUCT DETAILS
+        function showDetails(name, storage, ram, condition, price) {
+
+            alert(
+                "PRODUCT DETAILS\n\n" +
+                "Name: " + name + "\n" +
+                "Storage: " + storage + "\n" +
+                "RAM: " + ram + "\n" +
+                "Condition: " + condition + "\n" +
+                "Price: " + price
+            );
+
+        }
+
+
+        // ADD TO EXISTING CART
+        function addProduct(name, price) {
+
+            let cart = JSON.parse(
+                localStorage.getItem("realsGadgetsCart") || "[]"
+            );
+
+            const existing = cart.find(item => item.name === name);
+
+            if (existing) {
+                existing.quantity += 1;
+            } else {
+                cart.push({
+                    name: name,
+                    price: price,
+                    quantity: 1
+                });
+            }
+
+            localStorage.setItem(
+                "realsGadgetsCart",
+                JSON.stringify(cart)
+            );
+
+            const count = document.getElementById("cart-count");
+
+            if (count) {
+                count.textContent = cart.reduce(
+                    (total, item) => total + item.quantity,
+                    0
+                );
+            }
+
+            alert(name + " added to your cart!");
+
+        }
+
+
+        // SHOW EXISTING CART COUNT
+        const savedCart = JSON.parse(
+            localStorage.getItem("realsGadgetsCart") || "[]"
+        );
+
+        const cartCount = document.getElementById("cart-count");
+
+        if (cartCount) {
+            cartCount.textContent = savedCart.reduce(
+                (total, item) => total + item.quantity,
+                0
+            );
+        }
+
+    </script>
+
+</body>
+</html>
